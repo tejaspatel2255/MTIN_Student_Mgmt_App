@@ -1,0 +1,1573 @@
+{
+  "form_id": "baseline_survey",
+  "title": "Baseline Survey Form",
+  "institution": "Manikaka Topawala Institute of Nursing",
+  "campus": "Charusat Campus, Changa",
+  "subject": "Community Health Nursing - I",
+  "sections": [
+    {
+      "section_id": "basic_info",
+      "title": "SECTION 1: Basic Information",
+      "fields": [
+        {
+          "id": "facility_type",
+          "label": "Facility Type",
+          "type": "radio",
+          "options": [
+            "PHCs",
+            "CHCs",
+            "UHCs"
+          ],
+          "conditional_fields": {
+            "PHCs": [
+              {
+                "id": "community_area_phc",
+                "label": "Community Area (PHC)",
+                "type": "radio",
+                "options": [
+                  "Changa",
+                  "Piplav",
+                  "Bandhani",
+                  "Morad",
+                  "Sihol",
+                  "Nar"
+                ]
+              }
+            ],
+            "CHCs": [
+              {
+                "id": "community_area_chc",
+                "label": "Community Area (CHC)",
+                "type": "radio",
+                "options": [
+                  "Sarsa",
+                  "Tarapur",
+                  "Mahelav"
+                ]
+              }
+            ],
+            "UHCs": [
+              {
+                "id": "community_area_uhc",
+                "label": "Community Area (UHC)",
+                "type": "radio",
+                "options": [
+                  "Nehrubaugh",
+                  "PP Unit Anand",
+                  "Bakrol",
+                  "Ajarpura",
+                  "Navli"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "area_name",
+          "label": "Name of the area",
+          "type": "radio",
+          "options": [
+            "Rural",
+            "Urban"
+          ],
+          "has_text_input": true,
+          "text_label": "Specify area name"
+        },
+        {
+          "id": "health_centre_type",
+          "label": "Name of the Health Centre (Type)",
+          "type": "radio",
+          "options": [
+            "SC",
+            "HWCs",
+            "PHC",
+            "CHC",
+            "UHC"
+          ]
+        },
+        {
+          "id": "head_of_family_name",
+          "label": "Name of the Head of the family",
+          "type": "text"
+        },
+        {
+          "id": "family_type",
+          "label": "Type of family",
+          "type": "radio",
+          "options": [
+            "Nuclear",
+            "Joint",
+            "Single"
+          ]
+        },
+        {
+          "id": "religion",
+          "label": "Religion",
+          "type": "radio_with_subcaste",
+          "options": [
+            "Hindu",
+            "Muslim",
+            "Christian",
+            "Any Other"
+          ],
+          "sub_field_label": "Specify the sub caste"
+        }
+      ]
+    },
+    {
+      "section_id": "housing_condition",
+      "title": "SECTION 2: Housing Condition",
+      "fields": [
+        {
+          "id": "house_type",
+          "label": "6.1 Type of house",
+          "type": "radio",
+          "options": [
+            "Pucca",
+            "Semi Pucca",
+            "Kutcha"
+          ]
+        },
+        {
+          "id": "rooms",
+          "label": "6.2 Rooms",
+          "type": "group",
+          "fields": [
+            {
+              "id": "number_of_rooms",
+              "label": "Number of rooms",
+              "type": "number"
+            },
+            {
+              "id": "rooms_adequacy",
+              "label": "Adequacy",
+              "type": "radio",
+              "options": [
+                "Adequate",
+                "Inadequate"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "occupancy",
+          "label": "6.3 Occupancy",
+          "type": "radio",
+          "options": [
+            "Tenant",
+            "Owner"
+          ],
+          "sub_field": {
+            "id": "monthly_rent",
+            "label": "Monthly Rent (if Tenant)",
+            "type": "number"
+          }
+        },
+        {
+          "id": "ventilation",
+          "label": "6.4 Ventilation",
+          "type": "radio",
+          "options": [
+            "Adequate",
+            "Inadequate",
+            "No Ventilation"
+          ]
+        },
+        {
+          "id": "lighting",
+          "label": "6.5 Lighting",
+          "type": "radio",
+          "options": [
+            "Electricity",
+            "Gas lamp",
+            "Oil lamp"
+          ]
+        },
+        {
+          "id": "water_supply",
+          "label": "6.6 Water Supply",
+          "type": "radio",
+          "options": [
+            "Tap / Hand pump",
+            "Well",
+            "Open Tank",
+            "Others"
+          ],
+          "conditional_fields": {
+            "Others": [
+              {
+                "id": "water_supply_other",
+                "label": "Specify others",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "kitchen",
+          "label": "6.7 Kitchen",
+          "type": "radio",
+          "options": [
+            "Separate",
+            "Corner of the room",
+            "Veranda"
+          ]
+        },
+        {
+          "id": "drainage",
+          "label": "6.8 Drainage",
+          "type": "radio",
+          "options": [
+            "Adequate",
+            "Inadequate",
+            "No Drainage"
+          ]
+        },
+        {
+          "id": "lavatory",
+          "label": "6.9 Lavatory",
+          "type": "radio",
+          "options": [
+            "Own Latrine",
+            "Public Latrine",
+            "Open air defecation"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "family_composition",
+      "title": "SECTION 3: Family Composition",
+      "fields": [
+        {
+          "id": "family_members",
+          "label": "7. Family Composition",
+          "type": "table",
+          "allow_add_rows": true,
+          "min_rows": 1,
+          "columns": [
+            {
+              "id": "sr_no",
+              "label": "Sr. No",
+              "type": "auto_increment"
+            },
+            {
+              "id": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "id": "relationship",
+              "label": "Relationship with Head",
+              "type": "dropdown",
+              "options": [
+                "Hof",
+                "Father",
+                "Mother",
+                "Husband",
+                "Wife",
+                "Brother",
+                "Sister",
+                "Uncle",
+                "Aunty",
+                "Son",
+                "Daughter",
+                "Grand Son",
+                "Grand Daughter",
+                "Daughter-in-law",
+                "Other"
+              ]
+            },
+            {
+              "id": "age",
+              "label": "Age in years",
+              "type": "number"
+            },
+            {
+              "id": "gender",
+              "label": "Gender",
+              "type": "radio",
+              "options": [
+                "Male",
+                "Female",
+                "Other"
+              ]
+            },
+            {
+              "id": "education",
+              "label": "Education",
+              "type": "dropdown",
+              "options": [
+                "Professional Degree, Post Graduate",
+                "Graduate",
+                "Diploma",
+                "High secondary school",
+                "Secondary school",
+                "Primary school or literate",
+                "Illiterate"
+              ]
+            },
+            {
+              "id": "occupation",
+              "label": "Occupation",
+              "type": "dropdown",
+              "options": [
+                "Laborer",
+                "Farmer",
+                "Own Business",
+                "Private job",
+                "Government job",
+                "Unemployment",
+                "Student",
+                "Housewife",
+                "Retired"
+              ]
+            },
+            {
+              "id": "income",
+              "label": "Income",
+              "type": "number"
+            },
+            {
+              "id": "health_status",
+              "label": "General Health Status",
+              "type": "dropdown",
+              "options": [
+                "Healthy",
+                "Unhealthy"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "total_family_income",
+          "label": "7A. Total Income of Family / Month",
+          "type": "radio",
+          "options": [
+            "Below Rs. 1000",
+            "Rs. 1000 - 1500",
+            "Rs. 1501 - 2000",
+            "Rs. 2001 - 2500",
+            "Rs. 2501 and above"
+          ]
+        },
+        {
+          "id": "socio_economic_class",
+          "label": "7B. Socio-Economic Class",
+          "type": "radio",
+          "options": [
+            "Class I",
+            "Class II",
+            "Class III",
+            "Class IV",
+            "Class V"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "transport_communication",
+      "title": "SECTION 4: Transport & Communication Media",
+      "fields": [
+        {
+          "id": "transport",
+          "label": "8. Transport",
+          "type": "checkbox",
+          "options": [
+            "Tractor / Tempo",
+            "Own Vehicle",
+            "Uses GTS / GSRTC",
+            "Private Bus",
+            "Train"
+          ]
+        },
+        {
+          "id": "communication",
+          "label": "8.1 Communication",
+          "type": "checkbox",
+          "options": [
+            "Telephone / Mobile",
+            "Television",
+            "Radio",
+            "Newspaper / Magazine",
+            "Post and Telegraph / Email"
+          ]
+        },
+        {
+          "id": "mother_tongue",
+          "label": "8.2 Mother Tongue",
+          "type": "radio",
+          "options": [
+            "Gujarati",
+            "Hindi",
+            "Others"
+          ],
+          "conditional_fields": {
+            "Others": [
+              {
+                "id": "mother_tongue_other",
+                "label": "Specify",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "language_known",
+          "label": "8.3 Language Known",
+          "type": "checkbox_with_skills",
+          "languages": [
+            {
+              "id": "gujarati",
+              "label": "Gujarati",
+              "skills": [
+                "Read",
+                "Write"
+              ]
+            },
+            {
+              "id": "hindi",
+              "label": "Hindi",
+              "skills": [
+                "Read",
+                "Write"
+              ]
+            },
+            {
+              "id": "english",
+              "label": "English",
+              "skills": [
+                "Read",
+                "Write"
+              ]
+            },
+            {
+              "id": "others",
+              "label": "Others",
+              "has_specify": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "dietary_pattern",
+      "title": "SECTION 5: Dietary Pattern",
+      "fields": [
+        {
+          "id": "dietary_pattern_table",
+          "label": "9. Dietary Pattern",
+          "type": "table",
+          "allow_add_rows": false,
+          "columns": [
+            {
+              "id": "food_item",
+              "label": "Food Available",
+              "type": "static"
+            },
+            {
+              "id": "food_used",
+              "label": "Food Used",
+              "type": "checkbox_yn"
+            },
+            {
+              "id": "preparation_traditional",
+              "label": "Food Preparation - Traditional",
+              "type": "checkbox_yn"
+            },
+            {
+              "id": "preparation_ideal",
+              "label": "Food Preparation - Ideal",
+              "type": "checkbox_yn"
+            },
+            {
+              "id": "preparation_unhygienic",
+              "label": "Food Preparation - Unhygienic",
+              "type": "checkbox_yn"
+            }
+          ],
+          "rows": [
+            {
+              "food_item": "Rice"
+            },
+            {
+              "food_item": "Bajra"
+            },
+            {
+              "food_item": "Jowar"
+            },
+            {
+              "food_item": "Wheat"
+            },
+            {
+              "food_item": "Vegetables"
+            },
+            {
+              "food_item": "Fish"
+            },
+            {
+              "food_item": "Meat"
+            },
+            {
+              "food_item": "Egg"
+            },
+            {
+              "food_item": "Milk & Milk Products"
+            },
+            {
+              "food_item": "Pulses"
+            },
+            {
+              "food_item": "Tubers"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "expenditure",
+      "title": "SECTION 6: Statement of Expenditure of Family",
+      "fields": [
+        {
+          "id": "expenditure_table",
+          "label": "10. Statement of Expenditure of Family",
+          "type": "table",
+          "allow_add_rows": false,
+          "columns": [
+            {
+              "id": "sr_no",
+              "label": "Sr. No",
+              "type": "static"
+            },
+            {
+              "id": "item",
+              "label": "Items",
+              "type": "static"
+            },
+            {
+              "id": "amount_spent",
+              "label": "Amount Spent",
+              "type": "number"
+            },
+            {
+              "id": "percentage",
+              "label": "% of Total Expenditure",
+              "type": "number"
+            }
+          ],
+          "rows": [
+            {
+              "sr_no": "1",
+              "item": "Food"
+            },
+            {
+              "sr_no": "2",
+              "item": "Clothing"
+            },
+            {
+              "sr_no": "3",
+              "item": "Housing"
+            },
+            {
+              "sr_no": "4",
+              "item": "Medicine"
+            },
+            {
+              "sr_no": "5",
+              "item": "Children Education"
+            },
+            {
+              "sr_no": "6",
+              "item": "Recreation (movie etc)"
+            },
+            {
+              "sr_no": "7",
+              "item": "Smoking, Alcohol"
+            },
+            {
+              "sr_no": "8",
+              "item": "Debt"
+            },
+            {
+              "sr_no": "9",
+              "item": "Savings"
+            },
+            {
+              "sr_no": "10",
+              "item": "Other (specify)"
+            }
+          ],
+          "has_total_row": true
+        }
+      ]
+    },
+    {
+      "section_id": "health_conditions",
+      "title": "SECTION 7: Health Conditions",
+      "fields": [
+        {
+          "id": "fever_cases",
+          "label": "11. Is there any case of Fever?",
+          "type": "yes_no_with_table",
+          "sub_questions": [
+            {
+              "id": "fever_rigors",
+              "label": "11.1 With Rigors",
+              "type": "yes_no"
+            },
+            {
+              "id": "fever_cough",
+              "label": "11.2 With Cough",
+              "type": "yes_no"
+            },
+            {
+              "id": "fever_rash",
+              "label": "11.3 With Rash",
+              "type": "yes_no"
+            }
+          ],
+          "table_columns": [
+            {
+              "id": "sr_no",
+              "label": "Sr. No",
+              "type": "static"
+            },
+            {
+              "id": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "id": "age",
+              "label": "Age",
+              "type": "number"
+            },
+            {
+              "id": "disease",
+              "label": "Disease",
+              "type": "text"
+            },
+            {
+              "id": "treatment",
+              "label": "Treatment",
+              "type": "text"
+            },
+            {
+              "id": "remarks",
+              "label": "Remarks",
+              "type": "textarea"
+            }
+          ],
+          "min_rows": 3
+        },
+        {
+          "id": "skin_disease",
+          "label": "12. Does anyone have any Skin Disease? (e.g. Itching, Patch, Rashes)",
+          "type": "yes_no_with_table",
+          "table_columns": [
+            {
+              "id": "sr_no",
+              "label": "Sr. No",
+              "type": "static"
+            },
+            {
+              "id": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "id": "age",
+              "label": "Age",
+              "type": "number"
+            },
+            {
+              "id": "disease",
+              "label": "Disease",
+              "type": "text"
+            },
+            {
+              "id": "treatment",
+              "label": "Treatment",
+              "type": "text"
+            },
+            {
+              "id": "remarks",
+              "label": "Remarks",
+              "type": "textarea"
+            }
+          ],
+          "static_rows": [
+            "12.1",
+            "12.2",
+            "12.3"
+          ]
+        },
+        {
+          "id": "cough_more_than_2_weeks",
+          "label": "13. Does anyone have Cough for more than 2 weeks?",
+          "type": "yes_no_with_table",
+          "table_columns": [
+            {
+              "id": "sr_no",
+              "label": "Sr. No",
+              "type": "static"
+            },
+            {
+              "id": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "id": "age",
+              "label": "Age",
+              "type": "number"
+            },
+            {
+              "id": "disease",
+              "label": "Disease",
+              "type": "text"
+            },
+            {
+              "id": "treatment",
+              "label": "Treatment",
+              "type": "text"
+            },
+            {
+              "id": "remarks",
+              "label": "Remarks",
+              "type": "textarea"
+            }
+          ],
+          "static_rows": [
+            "13.1",
+            "13.2",
+            "13.3"
+          ]
+        },
+        {
+          "id": "other_illness",
+          "label": "14. Does anyone have any other illness?",
+          "type": "yes_no_with_table",
+          "table_columns": [
+            {
+              "id": "sr_no",
+              "label": "Sr. No",
+              "type": "static"
+            },
+            {
+              "id": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "id": "age",
+              "label": "Age",
+              "type": "number"
+            },
+            {
+              "id": "disease",
+              "label": "Disease",
+              "type": "text"
+            },
+            {
+              "id": "treatment",
+              "label": "Treatment",
+              "type": "text"
+            },
+            {
+              "id": "remarks",
+              "label": "Remarks",
+              "type": "textarea"
+            }
+          ],
+          "static_rows": [
+            "14.1",
+            "14.2",
+            "14.3"
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "family_health_attitude",
+      "title": "SECTION 8: Family Health Attitude",
+      "fields": [
+        {
+          "id": "health_illness_attitude",
+          "label": "a. Knowledge and attitude of family about health and illness",
+          "type": "textarea"
+        },
+        {
+          "id": "nutrition_attitude",
+          "label": "b. Knowledge, attitude and beliefs of family about nutrition",
+          "type": "textarea"
+        },
+        {
+          "id": "health_service_utilization",
+          "label": "c. Utilization of health services",
+          "type": "checkbox",
+          "options": [
+            "Private Hospital",
+            "Govt Hospital",
+            "CHC",
+            "PHC",
+            "Local Doctors",
+            "Other Systems"
+          ]
+        },
+        {
+          "id": "community_leaders",
+          "label": "d. Community leaders",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "section_id": "pregnant_women",
+      "title": "SECTION 9: Pregnant Women",
+      "fields": [
+        {
+          "id": "pregnant_women_table_toggle",
+          "label": "16. Any Pregnant Women? If YES, write the following remarks",
+          "type": "yes_no_with_table",
+          "table_columns": [
+            {
+              "id": "sr_no",
+              "label": "Sr. No",
+              "type": "auto_increment"
+            },
+            {
+              "id": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "id": "gravida",
+              "label": "16.1 Specify Gravida",
+              "type": "text"
+            },
+            {
+              "id": "registered",
+              "label": "16.2 Has she been registered?",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "iron_folic",
+              "label": "16.3 Getting Iron & Folic Acid Tablets?",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "tetanus_toxoid",
+              "label": "16.4 Had Tetanus Toxoid?",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ],
+          "min_rows": 4
+        }
+      ]
+    },
+    {
+      "section_id": "vital_statistics",
+      "title": "SECTION 10: Vital Statistics (within one year)",
+      "fields": [
+        {
+          "id": "births",
+          "label": "17.1 Births",
+          "type": "table",
+          "allow_add_rows": true,
+          "min_rows": 4,
+          "columns": [
+            {
+              "id": "dob",
+              "label": "Date of Birth",
+              "type": "date"
+            },
+            {
+              "id": "gender",
+              "label": "Gender",
+              "type": "radio",
+              "options": [
+                "Male",
+                "Female"
+              ]
+            },
+            {
+              "id": "parents",
+              "label": "Parents",
+              "type": "text"
+            },
+            {
+              "id": "remarks",
+              "label": "Remarks",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "deaths",
+          "label": "17.2 Deaths",
+          "type": "table",
+          "allow_add_rows": true,
+          "min_rows": 4,
+          "columns": [
+            {
+              "id": "dod",
+              "label": "Date of Death",
+              "type": "date"
+            },
+            {
+              "id": "gender",
+              "label": "Gender",
+              "type": "radio",
+              "options": [
+                "Male",
+                "Female"
+              ]
+            },
+            {
+              "id": "parents",
+              "label": "Parents",
+              "type": "text"
+            },
+            {
+              "id": "remarks",
+              "label": "Remarks",
+              "type": "textarea"
+            }
+          ]
+        },
+        {
+          "id": "marriages",
+          "label": "17.3 Marriages",
+          "type": "table",
+          "allow_add_rows": true,
+          "min_rows": 4,
+          "columns": [
+            {
+              "id": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "id": "age",
+              "label": "Age",
+              "type": "number"
+            },
+            {
+              "id": "dom",
+              "label": "Date of Marriage",
+              "type": "date"
+            },
+            {
+              "id": "remarks",
+              "label": "Remarks",
+              "type": "textarea"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": "immunization",
+      "title": "SECTION 11: Immunization (Children below 5 years)",
+      "fields": [
+        {
+          "id": "immunization_table",
+          "label": "18. Children below 5 years who have not received immunization",
+          "type": "table",
+          "allow_add_rows": true,
+          "min_rows": 5,
+          "columns": [
+            {
+              "id": "name",
+              "label": "Name of Child",
+              "type": "text"
+            },
+            {
+              "id": "dob",
+              "label": "Date of Birth",
+              "type": "date"
+            },
+            {
+              "id": "bcg",
+              "label": "BCG",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "opv0",
+              "label": "OPV 0",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "opv1",
+              "label": "OPV 1",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "opv2",
+              "label": "OPV 2",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "opvb1",
+              "label": "OPV B1",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "opvb2",
+              "label": "OPV B2",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pent1",
+              "label": "Pentavalent 1",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pent2",
+              "label": "Pentavalent 2",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pent3",
+              "label": "Pentavalent 3",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pentb1",
+              "label": "Pentavalent B1",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "pentb2",
+              "label": "Pentavalent B2",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "mr",
+              "label": "Measles & Rubella",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "immunization_remarks",
+          "label": "Remarks",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "section_id": "eligible_couples",
+      "title": "SECTION 12: Eligible Couples",
+      "fields": [
+        {
+          "id": "eligible_couples_toggle",
+          "label": "19. Eligible Couples (list on priority)",
+          "type": "yes_no_with_table",
+          "table_columns": [
+            {
+              "id": "name",
+              "label": "Name of the Couple",
+              "type": "text"
+            },
+            {
+              "id": "age",
+              "label": "Age",
+              "type": "number"
+            },
+            {
+              "id": "gender",
+              "label": "Gender",
+              "type": "radio",
+              "options": [
+                "Male",
+                "Female"
+              ]
+            },
+            {
+              "id": "priority1",
+              "label": "I Priority",
+              "type": "text"
+            },
+            {
+              "id": "priority2",
+              "label": "II Priority",
+              "type": "text"
+            }
+          ],
+          "min_rows": 2
+        },
+        {
+          "id": "eligible_couples_remarks",
+          "label": "Remarks",
+          "type": "textarea"
+        },
+        {
+          "id": "contraceptive_method",
+          "label": "19.1 Using contraceptive method? If yes, specify",
+          "type": "text"
+        },
+        {
+          "id": "family_planning_intention",
+          "label": "19.2 Intending to undergo",
+          "type": "checkbox",
+          "options": [
+            "Vasectomy",
+            "Tubal Ligation"
+          ]
+        },
+        {
+          "id": "fp_not_interested_reason",
+          "label": "19.3 Not interested to adopt FP Method (state reason)",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "section_id": "malnutrition",
+      "title": "SECTION 13: Malnutrition (Children 0-5 years)",
+      "fields": [
+        {
+          "id": "malnutrition_table",
+          "label": "20. Any child 0-5 years showing signs of Malnutrition",
+          "type": "table",
+          "allow_add_rows": true,
+          "min_rows": 3,
+          "columns": [
+            {
+              "id": "sr_no",
+              "label": "Sr. No",
+              "type": "auto_increment"
+            },
+            {
+              "id": "name",
+              "label": "Name",
+              "type": "text"
+            },
+            {
+              "id": "age",
+              "label": "Age",
+              "type": "number"
+            },
+            {
+              "id": "kwashiorkor",
+              "label": "20.1 Kwashiorkor",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "marasmus",
+              "label": "20.2 Marasmus",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "vit_a",
+              "label": "20.3 Vitamin A Deficiency",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "anemia",
+              "label": "20.4 Anemia",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            },
+            {
+              "id": "rickets",
+              "label": "20.5 Rickets",
+              "type": "radio",
+              "options": [
+                "Yes",
+                "No"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "malnutrition_remarks",
+          "label": "Remarks",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "section_id": "environmental_sanitation",
+      "title": "SECTION 14: Environmental Sanitation",
+      "fields": [
+        {
+          "id": "sewage_disposal",
+          "label": "21. Is the sewage water being disposed of hygienically?",
+          "type": "yes_no_with_reason",
+          "reason_label": "If no, state reasons"
+        },
+        {
+          "id": "waste_disposal",
+          "label": "22. Is the waste being disposed of hygienically?",
+          "type": "yes_no",
+          "conditional_fields": {
+            "Yes": [
+              {
+                "id": "waste_methods",
+                "label": "If yes, which method(s)?",
+                "type": "checkbox",
+                "options": [
+                  "Composting",
+                  "Burning",
+                  "Burying",
+                  "Dumping"
+                ]
+              }
+            ],
+            "No": [
+              {
+                "id": "waste_reason",
+                "label": "If no, state reasons",
+                "type": "textarea"
+              }
+            ]
+          }
+        },
+        {
+          "id": "excreta_disposal",
+          "label": "23. Is the excreta being disposed of hygienically?",
+          "type": "yes_no_with_reason",
+          "reason_label": "If no, state reasons"
+        },
+        {
+          "id": "cattle_housed",
+          "label": "24. Are the cattle and poultry if any housed hygienically?",
+          "type": "yes_no",
+          "conditional_fields": {
+            "Yes": [
+              {
+                "id": "cattle_how",
+                "label": "If yes, how are they housed?",
+                "type": "radio",
+                "options": [
+                  "Separate",
+                  "Within House"
+                ]
+              }
+            ],
+            "No": [
+              {
+                "id": "cattle_reason",
+                "label": "If no, state reasons",
+                "type": "textarea"
+              }
+            ]
+          }
+        },
+        {
+          "id": "well_handpump",
+          "label": "25. Is there a well or hand pump?",
+          "type": "yes_no",
+          "conditional_fields": {
+            "Yes": [
+              {
+                "id": "well_maintained",
+                "label": "25.1 If yes, is it maintained in good order/condition? If no, state reasons",
+                "type": "text"
+              },
+              {
+                "id": "well_chlorinated_date",
+                "label": "25.2 When was the well last chlorinated? Date?",
+                "type": "date"
+              },
+              {
+                "id": "well_chlorinated_reason",
+                "label": "If not chlorinated, state reasons",
+                "type": "textarea"
+              }
+            ]
+          }
+        },
+        {
+          "id": "house_clean",
+          "label": "26. Whether house is kept clean?",
+          "type": "yes_no_with_reason",
+          "reason_label": "If no, state reasons"
+        },
+        {
+          "id": "last_sprayed",
+          "label": "27. When was the house last sprayed?",
+          "type": "date",
+          "reason_field_label": "If no, state reasons"
+        },
+        {
+          "id": "breeding_places",
+          "label": "28. Is there any breeding place of insects and rodents?",
+          "type": "yes_no_with_reason",
+          "reason_label": "If yes, specify"
+        },
+        {
+          "id": "stray_dogs",
+          "label": "29. Are there any stray dogs in the vicinity?",
+          "type": "yes_no",
+          "conditional_fields": {
+            "Yes": [
+              {
+                "id": "stray_dog_count",
+                "label": "If yes, approximate number of dogs",
+                "type": "number"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "section_id": "healthcare_utilization",
+      "title": "SECTION 15: Healthcare Utilization",
+      "fields": [
+        {
+          "id": "treatment_location",
+          "label": "30. If anyone falls ill, where do they go for treatment?",
+          "type": "checkbox",
+          "options": [
+            "Hospital / Community Health Centre",
+            "Primary Health Centre / Sub Health Centre",
+            "Private Nursing Home",
+            "Indigenous Doctor / Local Vaidya / Homeopathy / Ayurvedic"
+          ]
+        },
+        {
+          "id": "health_agency_adequate",
+          "label": "31. Is official health agencies service adequate?",
+          "type": "yes_no_with_reason",
+          "reason_label": "If no, state reasons"
+        },
+        {
+          "id": "health_insurance",
+          "label": "32. Health insurance",
+          "type": "yes_no",
+          "conditional_fields": {
+            "Yes": [
+              {
+                "id": "health_insurance_specify",
+                "label": "Specify",
+                "type": "text"
+              }
+            ]
+          }
+        },
+        {
+          "id": "techo_number",
+          "label": "33. Techo Number",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "section_id": "family_assessment",
+      "title": "SECTION 16: Family Strength, Weakness & National Health Programmes",
+      "fields": [
+        {
+          "id": "family_strengths",
+          "label": "35. Strength of the family",
+          "type": "multi_text",
+          "count": 5,
+          "placeholder": "Enter strength"
+        },
+        {
+          "id": "family_weaknesses",
+          "label": "36. Weakness of the family",
+          "type": "multi_text",
+          "count": 5,
+          "placeholder": "Enter weakness"
+        },
+        {
+          "id": "national_programmes_hierarchical",
+          "label": "37. National health programme applicable to the family",
+          "type": "hierarchical_checkbox",
+          "categories": [
+            {
+              "id": "maternal_child",
+              "label": "1. Maternal and Child Health",
+              "sub_programs": [
+                "Janani Suraksha Yojana (JSY)",
+                "Janani Shishu Suraksha Karyakram (JSSK)",
+                "Pradhan Mantri Matru Vandana Yojana (PMMVY)",
+                "National Immunization Program (UIP / RI)"
+              ]
+            },
+            {
+              "id": "communicable",
+              "label": "2. Communicable Disease Control",
+              "sub_programs": [
+                "National Vector Borne Disease Control Programme (NVBDCP)",
+                "Revised National Tuberculosis Control Program (RNTCP / NTEP)",
+                "National Leprosy Eradication Programme (NLEP)",
+                "National AIDS Control Programme (NACP)"
+              ]
+            },
+            {
+              "id": "ncd",
+              "label": "3. Non-Communicable Disease (NCD) Control",
+              "sub_programs": [
+                "National Programme for Prevention and Control of Cancer, Diabetes, Cardiovascular Diseases and Stroke (NPCDCS)",
+                "Ayushman Bharat – Health and Wellness Centers (AB-HWC)"
+              ]
+            },
+            {
+              "id": "nutrition",
+              "label": "4. Nutrition and Anaemia Control",
+              "sub_programs": [
+                "National Iron Plus Initiative (NIPI)",
+                "Poshan Abhiyan / National Nutrition Mission"
+              ]
+            },
+            {
+              "id": "family_planning",
+              "label": "5. Family Planning and Reproductive Health",
+              "sub_programs": [
+                "National Family Planning Program",
+                "Rural Health & Urban Family Welfare Program"
+              ]
+            },
+            {
+              "id": "insurance",
+              "label": "6. Health Insurance and Financial Protection",
+              "sub_programs": [
+                "Ayushman Bharat – Pradhan Mantri Jan Arogya Yojana (PMJAY)"
+              ]
+            },
+            {
+              "id": "school",
+              "label": "7. School and Community Health Programs",
+              "sub_programs": [
+                "Rashtriya Bal Swasthya Karyakram (RBSK)",
+                "Rashtriya Kishor Swasthya Karyakram (RKSK)"
+              ]
+            },
+            {
+              "id": "wash",
+              "label": "8. Water, Sanitation, and Hygiene (linked to health)",
+              "sub_programs": [
+                "National Rural Health Mission (NRHM) / National Health Mission (NHM)",
+                "Swachh Bharat Mission (SBM)"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "drug_purchase",
+          "label": "38. Where do they go to purchase the prescribed drug?",
+          "type": "text"
+        },
+        {
+          "id": "medicine_compliance",
+          "label": "38.1 Compliance to medicine",
+          "type": "radio",
+          "options": [
+            "Complete",
+            "Partial / Few doses",
+            "Unfinished"
+          ]
+        },
+        {
+          "id": "head_contact",
+          "label": "39. Contact Number of Head of the Family",
+          "type": "tel"
+        }
+      ]
+    },
+    {
+      "section_id": "problems_signature",
+      "title": "SECTION 17: Problems Identified & Signature",
+      "fields": [
+        {
+          "id": "problems_identified",
+          "label": "List of Problems Identified",
+          "type": "multi_text",
+          "count": 6,
+          "placeholder": "Enter problem"
+        },
+        {
+          "id": "survey_date",
+          "label": "Date of Survey",
+          "type": "date"
+        },
+        {
+          "id": "student_signature",
+          "label": "Name and Signature of the Student",
+          "type": "signature"
+        }
+      ]
+    }
+  ]
+}
