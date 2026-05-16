@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../providers/student_provider.dart';
@@ -5,18 +6,24 @@ import '../../../core/constants/constants.dart';
 import '../../../models/models.dart';
 import 'subject_selection_screen.dart';
 
-class SemesterSelectionScreen extends StatelessWidget {
+class SemesterSelectionScreen extends StatefulWidget {
   const SemesterSelectionScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // Mock semesters
-    final List<Semester> semesters = [
-      Semester(id: '5', name: '5th Semester'),
-      Semester(id: '7', name: '7th Semester'),
-      Semester(id: '8', name: '8th Semester'),
-    ];
+  State<SemesterSelectionScreen> createState() => _SemesterSelectionScreenState();
+}
 
+class _SemesterSelectionScreenState extends State<SemesterSelectionScreen> {
+  late Future<List<Semester>> _semestersFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _semestersFuture = context.read<StudentProvider>().fetchSemesters();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Select Semester'),
@@ -25,13 +32,35 @@ class SemesterSelectionScreen extends StatelessWidget {
         elevation: 0,
       ),
       body: FutureBuilder<List<Semester>>(
-        future: context.read<StudentProvider>().fetchSemesters(),
+        future: _semestersFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.error_outline, color: AppColors.error, size: 48),
+                  const SizedBox(height: 16),
+                  Text(
+                    'Error: ${snapshot.error}',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(color: AppColors.error),
+                  ),
+                  const SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        _semestersFuture = context.read<StudentProvider>().fetchSemesters();
+                      });
+                    },
+                    child: const Text('Retry'),
+                  ),
+                ],
+              ),
+            );
           }
           final semesters = snapshot.data ?? [];
           
@@ -53,23 +82,26 @@ class SemesterSelectionScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 32),
                 Expanded(
-                  child: ListView.separated(
-                    itemCount: semesters.length,
-                    separatorBuilder: (_, __) => const SizedBox(height: 16),
-                    itemBuilder: (context, index) {
-                      final semester = semesters[index];
-                      return SemesterCard(
-                        semester: semester,
-                        onTap: () {
-                          context.read<StudentProvider>().setSemester(semester);
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (_) => const SubjectSelectionScreen()),
+                  child: semesters.isEmpty 
+                    ? const Center(child: Text('No semesters available.'))
+                    : ListView.separated(
+                        itemCount: semesters.length,
+                        separatorBuilder: (_, __) => const SizedBox(height: 16),
+                        itemBuilder: (context, index) {
+                          final semester = semesters[index];
+                          return SemesterCard(
+                            semester: semester,
+                            onTap: () {
+                              debugPrint('Semester tapped: ${semester.name}');
+                              context.read<StudentProvider>().setSemester(semester);
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (_) => const SubjectSelectionScreen()),
+                              );
+                            },
                           );
                         },
-                      );
-                    },
-                  ),
+                      ),
                 ),
               ],
             ),

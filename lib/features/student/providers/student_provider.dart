@@ -29,33 +29,23 @@ class StudentProvider extends ChangeNotifier {
   }
 
   Future<List<Semester>> fetchSemesters() async {
-    _isLoading = true;
-    notifyListeners();
     try {
       final data = await _supabase.getSemesters();
       return data.map((json) => Semester.fromJson(json)).toList();
     } catch (e) {
       debugPrint('Error fetching semesters: $e');
-      return [];
-    } finally {
-      _isLoading = false;
-      notifyListeners();
+      rethrow;
     }
   }
 
   Future<List<Subject>> fetchSubjects() async {
     if (_selectedSemester == null) return [];
-    _isLoading = true;
-    notifyListeners();
     try {
       final data = await _supabase.getSubjects(_selectedSemester!.id);
       return data.map((json) => Subject.fromJson(json)).toList();
     } catch (e) {
       debugPrint('Error fetching subjects: $e');
-      return [];
-    } finally {
-      _isLoading = false;
-      notifyListeners();
+      rethrow;
     }
   }
 
